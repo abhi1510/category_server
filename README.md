@@ -12,7 +12,7 @@ Run server as python manage.py runserver. <br>
 
 At this point our server is able to handle CRUD for Category.
 
-Endpoint: <br>
+Endpoints: <br>
 
 1. Get all Categories <br>
 Url: http://localhost:8000/api/product/categories/ <br> 
