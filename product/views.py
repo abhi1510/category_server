@@ -17,7 +17,7 @@ class CategoryList(APIView):
     def get(self, request):
         categories = Category.objects.all()
         category_filter = CategoryFilter(request.GET, queryset=categories)
-        serializer = CategorySerializer(category_filter.qs, many=True)
+        serializer = CategorySerializer(category_filter.qs, many=True, context={'request': request})
         return Response(serializer.data)
 
     def post(self, request):
@@ -29,7 +29,7 @@ class CategoryList(APIView):
             email_sub = 'Category Created'
             email_msg = 'New Category Name: {}'.format(serializer.data.get('name'))
             # trigger_email.delay(email_sub, email_msg)
-            
+
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
