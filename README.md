@@ -99,7 +99,11 @@ Response: 404 No Content
 Ordering is done in models meta class.<br>
 For filtering, dynamic filtering has been implemented using django-filter package. <br>
 Endpoint looks something like <br>
-http://localhost:8000/api/product/categories/?is_featured=False
+http://localhost:8000/api/product/categories/?is_featured=False <br>
+
+Dynamic filtering of fields can also be done.<br>
+For that just separate the desired fields names with pipes as
+http://localhost:8000/api/product/categories/?params=name|is_featured <br>
 
 <hr>
 
